@@ -15,20 +15,17 @@ public class Trie {
 
         }
     }
-
     private Node root;
 
     public Trie() {
         this.root = new Node('*');
     }
-
     public void insert(String word) {
         Node curr = this.root;
         for (int i = 0; i < word.length(); i++) {
             char ch = word.charAt(i);
             if (curr.children.containsKey(ch))
                 curr = curr.children.get(ch);
-
             else {
                 Node nn = new Node(ch);
                 curr.children.put(ch, nn);
@@ -37,10 +34,10 @@ public class Trie {
             }
         }
         curr.isterminal = true;
+
     }
 
     public boolean search(String word) {
-
         Node curr = this.root;
         for (int i = 0; i < word.length(); i++) {
             char ch = word.charAt(i);
@@ -51,6 +48,7 @@ public class Trie {
 
         }
         return curr.isterminal;
+
     }
 
     public boolean startsWith(String prefix) {
@@ -67,8 +65,7 @@ public class Trie {
         }
         return true;
     }
+
+
 }
-
-
-
 
